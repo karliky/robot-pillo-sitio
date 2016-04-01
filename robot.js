@@ -1,3 +1,4 @@
+
 var firstMasterStep = true;
 var firstCloneStep = true;
 
@@ -37,7 +38,7 @@ function isMember(master, clone) {
 /** 
  * Random number betweeen 100 and 200
  */
-function randomBetween(number)  {
+function randomBetween(number)  {
   return Math.floor(Math.random() * (number || 200)) + 100;
 }
 
@@ -101,6 +102,7 @@ Robot.prototype.onScannedRobot = function(ev) {
   var robot = ev.robot;
   for (var i = 0; i < 100; i++) {
     robot.fire();
+    robot.ahead(10);
   }
 };
 

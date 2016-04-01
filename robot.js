@@ -67,30 +67,13 @@ Robot.prototype.onIdle = function(ev) {
 
 Robot.prototype.onRobotCollision = function(ev) {
   var robot = ev.robot;
-  if (!isMember(ev.robot, ev.collidedRobot)) {
-    var enemy = ev.collidedRobot;
-    if (enemy.life < robot.life) {
-      robot.rotateCannon(ev.bearing);
-      robot.fire();
-    } else {
-      robot.turn(20);
-      robot.ahead(100); // trying to run away}
-    }
-  } else {
-    if (isMaster(robot)) {
-      robot.turn(15);
-      robot.ahead(60);
-    } else {
-      robot.turn(-15);
-      robot.back(30);
-    }
-  }
+	robot.turnRight(90);
 };
 
 Robot.prototype.onWallCollision = function(ev) {
   var robot = ev.robot;
-  robot.turn(ev.bearing);
-  robot.ahead(60);
+  robot.stop();
+  robot.turn(10);
 };
 
 Robot.prototype.onScannedRobot = function(ev) {
